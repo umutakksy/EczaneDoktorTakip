@@ -1,5 +1,5 @@
 # Eczane
-Geliştirdiğiniz Java uygulaması, doktorların hastalara reçete ettiği ilaçların kaydını tutan bir sistemdir. Bu uygulama, hastaların kişisel bilgilerini (isim, soyisim, şikayet gibi) ve onlara reçete edilen ilaçların detaylarını (ilaç adı ve dozaj) organize bir şekilde saklamayı hedefler. Kullanıcı dostu bir arayüz ile geliştirilen bu sistem, doktorların ve eczacıların hasta bilgilerini ve reçeteleri hızlıca görüntülemesine olanak tanır.
+Geliştirdiğim Java uygulaması, doktorların hastalara reçete ettiği ilaçların kaydını tutan bir sistemdir. Bu uygulama, hastaların kişisel bilgilerini (isim, soyisim, şikayet gibi) ve onlara reçete edilen ilaçların detaylarını (ilaç adı ve dozaj) organize bir şekilde saklamayı hedefler. Kullanıcı dostu bir arayüz ile geliştirilen bu sistem, doktorların ve eczacıların hasta bilgilerini ve reçeteleri hızlıca görüntülemesine olanak tanır.
 
 Uygulamanın Temel Özellikleri:
 Hasta Kaydı:

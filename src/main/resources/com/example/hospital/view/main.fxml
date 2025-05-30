@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hospital.MainController">
+    <top>
+        <VBox style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); -fx-padding: 15;">
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Label style="-fx-font-weight: bold;" text="🏥 Hastane Doktor Sistemi" textFill="WHITE">
+                    <font>
+                        <Font size="22.0" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label style="-fx-font-style: italic;" text="Modern Hasta Yönetim Sistemi" textFill="#E8E8E8">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox spacing="20" style="-fx-background-color: #f8f9fa;">
+            <padding>
+                <Insets bottom="25" left="25" right="25" top="25" />
+            </padding>
+
+            <!-- Sol Kolon - Hasta ve İlaç -->
+            <VBox spacing="20" HBox.hgrow="ALWAYS">
+
+                <!-- Hasta Bilgileri Kartı -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-font-size: 18;" text="👤" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #2c3e50;" text="Hasta Bilgileri" />
+                    </HBox>
+                    <Separator style="-fx-background-color: #ecf0f1;" />
+
+                    <VBox spacing="10" VBox.vgrow="ALWAYS">
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 12;" text="Hasta Adı" />
+                        <TextField fx:id="tfName" promptText="Hasta adını giriniz..." style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-padding: 10; -fx-font-size: 13;" />
+
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 12;" text="Şikayet" />
+                        <TextArea fx:id="tfComplaint" prefRowCount="3" promptText="Hasta şikayetini giriniz..." style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-padding: 10; -fx-font-size: 13;" wrapText="true" VBox.vgrow="ALWAYS" />
+
+                        <Button maxWidth="Infinity" onAction="#onCreatePatient" style="-fx-background-color: linear-gradient(to right, #3498db, #2980b9); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold; -fx-font-size: 13; -fx-padding: 10 20 10 20; -fx-cursor: hand;" text="✨ Hasta Oluştur" />
+                    </VBox>
+                </VBox>
+
+                <!-- İlaç Yazma Kartı -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-font-size: 18;" text="💊" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #2c3e50;" text="İlaç Reçetesi" />
+                    </HBox>
+                    <Separator style="-fx-background-color: #ecf0f1;" />
+
+                    <VBox spacing="10" VBox.vgrow="ALWAYS">
+                        <HBox spacing="12">
+                            <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 12;" text="İlaç Adı" />
+                                <TextField fx:id="tfMedName" promptText="İlaç adı..." style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-padding: 10; -fx-font-size: 13;" />
+                            </VBox>
+                            <VBox spacing="6" HBox.hgrow="ALWAYS">
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 12;" text="Doz" />
+                                <TextField fx:id="tfDosage" promptText="Doz miktarı..." style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-padding: 10; -fx-font-size: 13;" />
+                            </VBox>
+                        </HBox>
+
+                        <Region VBox.vgrow="ALWAYS" />
+
+                        <Button maxWidth="Infinity" onAction="#onPrescribeMedication" style="-fx-background-color: linear-gradient(to right, #27ae60, #229954); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold; -fx-font-size: 13; -fx-padding: 10 20 10 20; -fx-cursor: hand;" text="💉 İlaç Yaz" />
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <!-- Orta Kolon - Tetkik -->
+            <VBox spacing="20" HBox.hgrow="ALWAYS">
+
+                <!-- Tetkik İsteme Kartı -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-font-size: 18;" text="🔬" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #2c3e50;" text="Tetkik İstemi" />
+                    </HBox>
+                    <Separator style="-fx-background-color: #ecf0f1;" />
+
+                    <VBox spacing="10" VBox.vgrow="ALWAYS">
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 12;" text="Tetkik Adı" />
+                        <TextField fx:id="tfTest" promptText="İstenen tetkiği giriniz..." style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-padding: 10; -fx-font-size: 13;" />
+
+                        <Region VBox.vgrow="ALWAYS" />
+
+                        <Button maxWidth="Infinity" onAction="#onRequestTest" style="-fx-background-color: linear-gradient(to right, #f39c12, #e67e22); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold; -fx-font-size: 13; -fx-padding: 10 20 10 20; -fx-cursor: hand;" text="🧪 Tetkik İste" />
+                    </VBox>
+                </VBox>
+
+                <!-- Hızlı İşlemler Kartı -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-font-size: 18;" text="⚡" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #2c3e50;" text="Hızlı İşlemler" />
+                    </HBox>
+                    <Separator style="-fx-background-color: #ecf0f1;" />
+
+                    <VBox spacing="8" VBox.vgrow="ALWAYS">
+                        <Button maxWidth="Infinity" onAction="#onShowInfo" style="-fx-background-color: linear-gradient(to right, #9b59b6, #8e44ad); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold; -fx-font-size: 13; -fx-padding: 10 20 10 20; -fx-cursor: hand;" text="📄 Bilgileri Göster" />
+
+                        <Button maxWidth="Infinity" onAction="#onClearForm" style="-fx-background-color: linear-gradient(to right, #e74c3c, #c0392b); -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold; -fx-font-size: 13; -fx-padding: 10 20 10 20; -fx-cursor: hand;" text="🗑️ Formu Temizle" />
+
+                        <Region VBox.vgrow="ALWAYS" />
+
+                        <VBox spacing="4" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-padding: 12;">
+                            <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 11;" text="📊 Sistem Bilgisi" />
+                            <Label style="-fx-font-size: 10;" text="✅ Sistem Aktif" textFill="#27ae60" />
+                            <Label style="-fx-font-size: 10;" text="👨‍⚕️ Doktor Modülü" textFill="#3498db" />
+                        </VBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <!-- Sağ Kolon - Bilgi Görüntüleme -->
+            <VBox spacing="20" HBox.hgrow="ALWAYS">
+
+                <!-- Bilgi Görüntüleme Kartı -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 2);" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-font-size: 18;" text="📋" />
+                        <Label style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #2c3e50;" text="Hasta Dosyası" />
+                    </HBox>
+                    <Separator style="-fx-background-color: #ecf0f1;" />
+
+                    <VBox spacing="10" VBox.vgrow="ALWAYS">
+                        <Label style="-fx-font-weight: bold; -fx-text-fill: #34495e; -fx-font-size: 12;" text="Hasta Özeti ve Detayları" />
+                        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                            <TextArea fx:id="taInfo" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="294.0" style="-fx-background-color: #f8f9fa; -fx-border-color: transparent; -fx-background-radius: 6; -fx-padding: 12; -fx-font-size: 12; -fx-font-family: 'Consolas', 'Monaco', monospace;" wrapText="true" />
+                        </ScrollPane>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: #34495e; -fx-padding: 10 25 10 25;">
+            <Label style="-fx-font-size: 11;" text="© 2025 Hastane Yönetim Sistemi" textFill="WHITE" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label style="-fx-font-size: 10;" text="v1.0.0" textFill="#BDC3C7" />
+            <Label style="-fx-font-size: 10;" text="•" textFill="#BDC3C7" />
+            <Label style="-fx-font-size: 10;" text="Geliştirildi ❤️ ile" textFill="#BDC3C7" />
+        </HBox>
+    </bottom>
+</BorderPane>
